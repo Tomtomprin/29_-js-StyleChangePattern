@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div>
+        No.29 <br>
+        jsによるスタイル変更３パターンまとめ（結果は一緒）<br>
+        押したら、背景色変更<br>
+        下記の「js行数」は、共通する定義文行数やアロー関数行数を除いた行数としている。
+    </div>
+    <div class="test test1">
+        Pattern① js1行<br><br>
+        使用するjs・・・<br>
+        ■■■.style.background = 'pink';<br><br>
+        ポイント：一番シンプル。今回の例のような単純な変化の場合などには、適している。
+    </div>
+
+    <div class="test test2">
+        Pattern② js1行＋css1行<br><br>
+        使用するjs・・・ <br>
+        XX.classList.add('●●');<br><br>
+        ポイント：jsの他に、CSSの記述が必要。CSSでは、変更後のクラスに対して変化させたいスタイルの記述をする。その場合は、当初クラスの記述の下にする。<br><br>classList.addの他、似た挙動としてはclassNameがある。<br>XX.className
+        = '●●';<br>
+        classNameは現在のクラス名が差し代わる。今回であったら、背景色の他にも高さなどのプロパティーも当てているが、そのようなスタイルも消える。大幅なスタイル変更をする場合は、classNameの方がやりやすい。
+
+
+    </div>
+
+    <div class="test test3">
+        Pattern③ js3行<br><br>
+        使用するjs・・・ <br>
+        ①に追加して、<br>
+        getComputedStyle<br><br>
+        ポイント：背景色についても、変数の定義している。複雑な条件での動きを指定する場合は適している。
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+
+
+
+
+
+
+</html>
